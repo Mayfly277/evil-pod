@@ -1,0 +1,23 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ssh-pubkeys
+data:
+  id_rsa_eca.pub: |
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxSO0ndXjEjj539U/1iV0JfDqhy2hSJn1ExSWwumvX4wRP08kpeCWZVPuJSWfYRiCaIjeuuhxQhDpBUVC0mN+dCmfz8qjJSBq2ge3pauCTYOXvle2ggKZHMLgynjUQA0j0nZxEjdcmRdNBEniIOLDYxB+zy5u9bdcMuaMX5Xwlbr4YvQAWCAlB3roxZANyilC/5Cbz1W1bJUYp9ZxAFv5TegLaDge8t0V6zE4+xRLyv7FzNyin5AWTuR042JERKUV5Of9Yq+YncK2cq8YVh0jm65UAlx2jAkMHhRCni2lC3PGw5RvM8svhPmiOD+jyqQ75OIfwhtYHcO73nm/vOM/n mykey
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ssh-config
+data:
+  PUID: "1000"
+  PGID: "1000"
+  TZ: "Etc/UTC"
+  PUBLIC_KEY_DIR: "/pub_keys"
+  PASSWORD_ACCESS: "false"
+  SUDO_ACCESS: "true"
+  USER_NAME: sftp
+  DOCKER_MODS: linuxserver/mods:universal-package-install
+  INSTALL_PACKAGES: make|git|python3-dev|py3-pip
