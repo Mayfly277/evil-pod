@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: evilpod
+  name: evilservice
 spec:
   type: ClusterIP
   ports:
@@ -12,3 +12,8 @@ spec:
     name: ssh
   selector:
     app: evilpod
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: evilaccount
