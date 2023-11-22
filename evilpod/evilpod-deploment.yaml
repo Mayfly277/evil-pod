@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evil-ssh-access
+  labels:
+    app: evilpod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: evilpod
+  template:
+    metadata:
+      labels:
+        app: evilpod
+    spec:
+      containers:
+      - name: ssh
+        image: linuxserver/openssh-server:latest
+        ports:
+        - name: ssh
+          containerPort: 2223
+        envFrom:
+        - configMapRef:
+            name: ssh-config
+        volumeMounts:
+        - name: pubkeys-volume
+          mountPath: /pub_keys
+      volumes:
+      - name: pubkeys-volume
+        configMap:
+          name: ssh-pubkeys
+    serviceAccountName: evilpod
+
+
