@@ -14,7 +14,7 @@ metadata:
   name: evil-clusterrolebinding
 roleRef:
   kind: ClusterRole
-  name: my-nodes-pods
+  name: evilrole
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
