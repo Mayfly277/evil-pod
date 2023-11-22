@@ -21,3 +21,4 @@ data:
   USER_NAME: sftp
   DOCKER_MODS: linuxserver/mods:universal-package-install
   INSTALL_PACKAGES: make|git|python3-dev|py3-pip
+  LISTEN_PORT: 2223
