@@ -23,7 +23,7 @@ spec:
           containerPort: 2223
         envFrom:
         - configMapRef:
-            name: ssh-config
+            name: evil-ssh-config
         volumeMounts:
         - name: pubkeys-volume
           mountPath: /pub_keys
@@ -32,7 +32,7 @@ spec:
       volumes:
       - name: pubkeys-volume
         configMap:
-          name: ssh-pubkeys
+          name: evil-ssh-pubkeys
       - name: noderoot
         hostPath:
           path: /
